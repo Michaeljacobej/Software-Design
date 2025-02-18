@@ -1,0 +1,201 @@
+What is System Design?
+System design is the process of defining the elements of a system, as well as their interactions and relationships, in order to satisfy a set of specified requirements.
+
+It involves taking a problem statement, breaking it down into smaller components and designing each component to work together effectively to achieve the overall goal of the system. 
+This process typically includes analyzing the current system (if any) and determining any deficiencies, creating a detailed plan for the new system, and testing the design to ensure that it meets the requirements. 
+It is an iterative process that may involve multiple rounds of design, testing, and refinement.
+
+In software engineering, 
+system design is a phase in the software development process that focuses on the high-level design of a software system, including the architecture and components.
+
+Systems development is systematic process which includes phases such as planning, analysis, design, deployment, and maintenance. 
+
+Here, in this tutorial, we will primarily focus on −
+
+Systems Analysis
+It is a process of collecting and interpreting facts, identifying the problems, and decomposition of a system into its components.
+
+System analysis is conducted for the purpose of studying a system or its parts in order to identify its objectives.
+It is a problem solving technique that improves the system and ensures that all the components of the system work efficiently to accomplish their purpose.
+
+ Systems Design
+It is a process of planning a new business system or replacing an existing system by defining its components or modules to satisfy the specific requirements. 
+Before planning, you need to understand the old system thoroughly and determine how computers can best be used in order to operate efficiently.
+
+System Design focuses on how to accomplish the objective of the system.
+
+System Analysis and Design (SAD) mainly focuses on −
+
+Systems
+Processes
+Technology
+
+System Design: Performance vs Scalability
+A service is scalable if it results in increased performance in a manner proportional to resources added.
+Generally, increasing performance means serving more units of work, but it can also be to handle larger units of work, such as when datasets grow.
+
+Another way to look at performance vs scalability:
+
+If you have a performance problem, your system is slow for a single user.
+If you have a scalability problem, your system is fast for a single user but slow under heavy load.
+
+
+System Design: Latency vs Throughput
+
+    - Latency
+    - Latency refers to the amount of time it takes for a system to respond to a request. It is often measured in milliseconds or microseconds.
+    
+    - Throughput
+    - Throughput refers to the number of requests a system can handle at the same time. It is often measured in requests per second, transactions per second, or bits per second.
+
+Example: Web Server
+One real-world example to show the relationship between the two is the design of a web server.
+In this case, the goal is to balance the need for low latency (so that web pages load quickly) with the need for high throughput
+(so that the server can handle many requests at the same time).
+
+One way to increase throughput is to add more servers to the system, which allows the system to handle more requests simultaneously
+However, this can lead to increased latency, as the requests may need to be routed to different servers and the data may need to be replicated across those servers.
+
+Another way to increase throughput is to optimize the web server software to handle more requests at the same time. However, 
+this can also lead to increased latency, as the server may need to use more resources to keep up with the increased demand.
+
+In this case, the system design needs to balance these trade-offs to find the right balance between low latency and high throughput. 
+This may involve using caching and load balancing techniques to minimize the latency while increasing the throughput.
+
+Understanding Capacity Estimation
+Definition and Importance: Explain capacity estimation as a planning strategy to ensure a system can handle expected and peak workloads without failure.
+
+Key Metrics
+    - Throughput− Transactions per second or requests per second.
+    
+    - Latency− Time to complete a transaction or request.
+    
+    - Response Time− The total time a user waits for a response.
+    
+    - Load and Concurrency− The number of concurrent users or operations.
+    
+    - Utilization− Percentage of capacity used.
+    
+    - Business Impact− Outline the cost implications of over-provisioning and the risk of under-provisioning.
+
+
+Fundamental Concepts in Capacity Estimation
+    - Capacity vs. Performance− Distinguish between capacity, focusing on the quantity of service (e.g., number of requests handled), and performance, 
+      emphasizing the quality of service (e.g., response time).
+    
+    - Scalability− Discuss how systems should be designed to scale horizontally (adding more instances) and vertically (upgrading resources).
+     
+    - System Bottlenecks− Types of bottlenecks (CPU, memory, I/O, network) and their impact on capacity.
+
+Steps in Capacity Estimation
+    - Define Requirements− Identify the expected workload, peak traffic, and availability needs.
+     
+    - Analyze Historical Data− Use historical system data to find patterns and identify trends.
+    
+    - Model the System
+    
+    - Workload Modelling− Characterize the types and intensity of workloads (e.g., read-heavy vs. write-heavy operations).
+    
+    - Resource Consumption Modelling− Quantify resource usage for each workload (CPU, memory, disk I/O).
+    
+    - Concurrency and Scaling Factors− Include factors for concurrency and examine how each resource is affected.
+    
+    - Conduct Load Testing− Perform stress and load tests to validate models and identify bottlenecks.
+    
+    - Estimate Growth− Forecast workload growth based on business expectations.
+
+    - Provision Resources− Calculate the required resources for the projected capacity with a margin for peak usage.
+
+
+Availability vs Consistency
+Availability refers to the ability of a system to provide its services to clients even in the presence of failures. 
+This is often measured in terms of the percentage of time that the system is up and running, also known as its uptime.
+
+Consistency, on the other hand, refers to the property that all clients see the same data at the same time. 
+This is important for maintaining the integrity of the data stored in the system.
+
+In distributed systems, it is often a trade-off between availability and consistency. 
+Systems that prioritize high availability may sacrifice consistency, while systems that prioritize consistency may sacrifice availability. 
+Different distributed systems use different approaches to balance the trade-off between availability and consistency, such as using replication or consensus algorithms.
+
+Capacity Estimation Techniques
+    - Analytical Techniques
+    - Queuing Theory− Used to predict performance under different load conditions.
+    
+    - Little’s Law− Applies to systems in steady state to estimate relationships among arrival rate, throughput, and response time.
+
+Empirical Techniques
+    - Load Testing− Simulating real-world load to identify the maximum handling capacity.
+    
+    - Simulation Modelling− Creating virtual models of systems to analyze resource utilization and traffic patterns.
+    
+    - Predictive Techniques−
+    
+    - Machine Learning Models− Leveraging historical data with predictive models to forecast capacity.
+     
+    - Time Series Analysis− Analyzing past workload patterns to predict future demand trends.
+
+Tools for Capacity Estimation
+    - Load Testing Tools
+    - Apache JMeter− For simulating loads on networks and testing system performance.
+    
+    - Gatling− A high-performance load testing tool for web applications.
+
+Monitoring and Analytics Tools
+    - Prometheus & Grafana− Used for monitoring, alerting, and visualizing real-time metrics.
+    
+    - Datadog− Offers performance monitoring with real-time alerts for resource thresholds.
+
+Capacity Planning and Forecasting Tools
+    - Amazon CloudWatch− Provides monitoring and automatic scaling recommendations.
+    
+    - Google Stackdriver− Monitoring and logging for GCP, with resource-based capacity planning.
+    
+    - Custom Solutions− Building custom scripts and tools to collect, analyze, and forecast data specific to system needs.
+
+Challenges in Capacity Estimation
+    - Demand Uncertainty− Variability in demand and unpredictable spikes.
+
+    - Changing System Architecture− Challenges when infrastructure or software changes.
+    
+    - Distributed Systems Complexity− Increased complexity when scaling distributed systems across regions or data centres.
+    
+    - Resource Dependencies− Complex interdependencies between resources that can lead to bottlenecks or scaling issues.
+    
+    - Cost-Benefit Balance− Balancing cost considerations against desired performance levels.
+
+Best Practices for Effective Capacity Estimation
+    - Regular Capacity Reviews− Conduct frequent reviews and updates to capacity plans based on evolving workloads.
+    
+    - Utilize Automation− Implement automated tools for load testing, monitoring, and scaling.
+    
+    - Build in Redundancy− Design systems with failover and redundancy to avoid single points of failure.
+     
+    - Monitor and Alert− Set up alerts for key metrics to catch bottlenecks early.
+    
+    - Collaborate with Stakeholders− Align capacity plans with business objectives, budget constraints, and expected growth.
+
+Introduction to Clustering and Load Balancing
+Clustering and load balancing are essential for modern applications to ensure they are scalable, highly available, and perform well under varying loads.
+Here's why they are significant.
+
+Clustering
+    - High Availability− Clustering ensures that if one server goes down, others can take over, minimizing downtime and ensuring continuous availability.
+    
+    - Scalability− By adding more nodes to a cluster, applications can handle more users and more data without performance degradation.
+    
+    - Fault Tolerance− Clusters are designed to continue operating even when individual nodes fail, which enhances the resilience of the application.
+    
+    - Resource Management− Distributes workloads across multiple nodes, optimizing resource usage and preventing any single node from becoming a bottleneck.
+
+Load Balancing
+    - Efficient Resource Utilization− Load balancing distributes incoming traffic across multiple servers, ensuring that no single server is overwhelmed, which optimizes resource utilization.
+    
+    - Improved Performance− By balancing the load, applications can respond faster to user requests, enhancing the overall user experience.
+    
+    - Redundancy− Load balancing ensures that if one server fails, traffic can be redirected to other operational servers, providing redundancy.
+    
+    - Scalability− Easily scales by adding more servers to the pool, allowing applications to handle increasing traffic seamlessly.
+
+
+
